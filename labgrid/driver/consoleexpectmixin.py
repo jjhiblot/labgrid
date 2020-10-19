@@ -15,7 +15,7 @@ class ConsoleExpectMixin:
 
     def __attrs_post_init__(self):
         super().__attrs_post_init__()
-        self._expect = PtxExpect(self)
+        self._expect = PtxExpect(self, maxread = self.maxread)
 
     @Driver.check_active
     @step(result=True, tag='console')

@@ -8,14 +8,14 @@ class PtxExpect(pexpect.spawn):
     driver: ConsoleProtocol object to be passed in
     """
 
-    def __init__(self, driver):
+    def __init__(self, driver, maxread = 1):
         "Initializes a pexpect spawn instanse with required configuration"
         self.driver = driver
         self.linesep = b"\n"
         pexpect.spawn.__init__(
             self,
             None,
-            maxread=1,
+            maxread=maxread,
         )
 
     def send(self, s):

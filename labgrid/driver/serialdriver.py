@@ -34,6 +34,7 @@ class SerialDriver(ConsoleExpectMixin, Driver, ConsoleProtocol):
         warnings.warn(message)
 
     txdelay = attr.ib(default=0.0, validator=attr.validators.instance_of(float))
+    maxread = attr.ib(default=1, validator=attr.validators.instance_of(int))
 
     def __attrs_post_init__(self):
         super().__attrs_post_init__()
